@@ -1,21 +1,137 @@
+
 @import '../bower_components/bourbon/app/assets/stylesheets/bourbon';
 @import '../bower_components/neat/app/assets/stylesheets/neat';
+$grid-columns : 5;
 
 // Typography
 $base-font-family: $helvetica;
 
 // Colors
 $blue: #477dca;
+$darkest-gray: #444445; //main border
 $dark-gray: #333;
-$medium-gray: #999;
-$light-gray: #ddd;
-$very-light-gray: #fafafa;
+$medium-gray: #797979; //large num - letters
+$light-gray: #c9c9c9; //border-circles
+$lighter-gray: #a6a6a6; //small numbers
+$very-light-gray: #e5e5e5;//background
+
+$green-top: #b5c869;
+$green-bottom: #75892c;
+$dark-green: #445213;
+$medium-green: #445213;
+
+$gray-top: #6b6d73;
+$gray-bottom: #4c4e52;
+$task-qty: #404247;
+
+
 
 $base-font-color: $dark-gray;
 $base-background-color: $very-light-gray;
 
 body {
   font-family: $base-font-family;
-  background-color: $base-background-color;
+  background-color: white;
   color: $base-font-color;
+}
+.accordion {
+  @include outer-container(255px);
+  margin-top: 20px;
+  border: 2px solid $darkest-gray;
+
+}
+h1,
+h2,
+.task-qty{
+  font-size: 12px;
+}
+h1,
+h2{
+  @include span-columns(3 of 5);
+}
+ul {
+  padding: 0;
+  margin:0;
+
+}
+.category h1 {
+  color: $medium-green;
+}
+li {
+  @include span-columns(5);
+  height: 35px;
+  border-bottom: 1px solid $light-gray;
+  padding-right: 8px;
+}
+
+
+.tasks {
+  background-color: $very-light-gray;
+
+}
+.active {
+  background: linear-gradient($green-top,$green-bottom);
+}
+.in-active {
+  background: linear-gradient($gray-top,$gray-bottom);
+}
+.item {
+  @include span-columns(1 of 5);
+  padding: 11px;
+  color: $lighter-gray;
+  font-size: 10px;
+
+}
+.image {
+
+  @include span-columns(1 of 5);
+}
+img {
+  height: 12px;
+  width: 19px;
+  margin-top: 10px;
+  margin-left: 8px;
+
+}
+.sign-out img {
+  height: 23px;
+  margin-top: 5px;
+}
+.tasks h2 {
+  color: $medium-gray;
+}
+.in-active h1 {
+  color: #ffffff;
+}
+.outer-task-qty{
+  @include span-columns(1 of 5);
+
+}
+.task-qty {
+  display: inline-block;
+  padding: 8px;
+  float: right;
+
+  border-radius: 22%/ 50% ;
+  line-height: 0;
+  text-align: center;
+  margin-top: 6px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+span.task-qty {
+  color: $medium-gray;
+  border: 1px solid $light-gray;
+}
+.active .task-qty{
+  color: #fff;
+  background-color: $dark-green;
+  border-color: #39450f;
+
+}
+.in-active .task-qty {
+  color: #ffffff;
+  background-color: $task-qty;
+  border-color: $darkest-gray;
 }
